@@ -32,7 +32,7 @@ defmodule FbManager.FFServer do
     client = FFNerd.Client.new("hrqevq4h55mt")
     player = FFNerd.Player.find(name, client)
     new_state = Map.put(state, name, player)
-    {:no_reply, new_state}
+    {:noreply, new_state}
   end
 end
 

@@ -4,7 +4,6 @@ defmodule FbManagerTest do
 
   test "starts with an empty roster" do
     FbManager.FFServer.start_link 
-    # IO.inspect(FbManager.FFServer.roster())
     
     assert FbManager.FFServer.roster() == %{}
   end
@@ -16,5 +15,5 @@ defmodule FbManagerTest do
     
     ## fails with: mix test --no-start
     assert FbManager.FFServer.roster() != %{}
-  end    
+  end
 end
