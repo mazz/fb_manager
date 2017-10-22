@@ -6,10 +6,7 @@ defmodule FbManagerTest do
     FbManager.FFServer.start_link 
     # IO.inspect(FbManager.FFServer.roster())
     
-    ## fails with: mix test
     assert FbManager.FFServer.roster() == %{}
-
-
   end
 
   test "can add a player" do

@@ -35,3 +35,4 @@ defmodule FbManager.FFServer do
     {:no_reply, new_state}
   end
 end
+
