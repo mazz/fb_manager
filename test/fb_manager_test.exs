@@ -3,7 +3,21 @@ defmodule FbManagerTest do
   doctest FbManager.FFServer
 
   test "starts with an empty roster" do
-    { :ok, ffnerd } = FbManager.FFServer.start_link 
-    assert FbManager.FFServer.roster() == []
+    FbManager.FFServer.start_link 
+    # IO.inspect(FbManager.FFServer.roster())
+    
+    ## fails with: mix test
+    assert FbManager.FFServer.roster() == %{}
+
+
   end
+
+  test "can add a player" do
+    FbManager.FFServer.start_link
+    FbManager.FFServer.add("Russell Wilson")
+    # IO.inspect(FbManager.FFServer.roster())
+    
+    ## fails with: mix test --no-start
+    assert FbManager.FFServer.roster() != %{}
+  end    
 end
