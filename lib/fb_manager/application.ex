@@ -9,7 +9,7 @@ defmodule FbManager.Application do
     import Supervisor.Spec, warn: false
     # List all child processes to be supervised
     children = [
-      worker(FbManager.FFServer, [[name: FFNerd]])
+      worker(FbManager.FFServer, []) #[[name: FFNerd]])
       # Starts a worker by calling: FbManager.Worker.start_link(arg)
       # {FbManager.Worker, arg},
       
