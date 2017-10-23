@@ -10,10 +10,17 @@ defmodule FbManagerTest do
 
   test "can add a player" do
     FbManager.FFServer.start_link
+    # FbManager.FFServer.add("Russell Wilson")
     FbManager.FFServer.add("Russell Wilson")
-    # IO.inspect(FbManager.FFServer.roster())
     
-    ## fails with: mix test --no-start
     assert FbManager.FFServer.roster() != %{}
+  end
+
+  test "can find a player on the roster" do 
+    FbManager.FFServer.start_link
+    FbManager.FFServer.add("Russell Wilson")
+
+    assert FbManager.FFServer.find("Russell Wilson") != nil
+    
   end
 end
