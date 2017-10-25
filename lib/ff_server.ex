@@ -7,7 +7,11 @@ defmodule FbManager.FFServer do
   # client 
 
   def start_link do
-    GenServer.start_link __MODULE__, [], name: :ffnerd
+    GenServer.start_link __MODULE__, [], name: :ffnerd ## returns {:ok, pid}
+  end
+
+  def stop(pid) do
+    GenServer.stop(pid)
   end
 
   def roster() do
