@@ -23,6 +23,10 @@ defmodule FbManager.FFServer do
     GenServer.call(:ffnerd, {:find, name})
   end
 
+  def remove(name) do
+    GenServer.cast(:ffnerd, {:remove, name})
+  end
+
   # server
 
   def init(_) do
@@ -34,7 +38,6 @@ defmodule FbManager.FFServer do
   end
 
   def handle_call({:find, name}, _from, state) do
-    IO.puts(name)
     found = Map.fetch(state, name)
     {:reply, found, state}
   end
@@ -45,6 +48,10 @@ defmodule FbManager.FFServer do
     new_state = Map.put(state, name, player)
     {:noreply, new_state}
   end
-
+  
+  def handle_cast({:remove, name}, state) do
+    new_state = Map.delete(state, name)
+    {:noreply, new_state}
+  end
 end
 

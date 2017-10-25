@@ -23,4 +23,14 @@ defmodule FbManagerTest do
     assert FbManager.FFServer.find("Russell Wilson") != nil
     
   end
+
+  test "can remove a player on the roster" do
+    FbManager.FFServer.start_link
+    FbManager.FFServer.add("Russell Wilson")
+
+    FbManager.FFServer.remove("Russell Wilson")
+
+    assert FbManager.FFServer.find("Russell Wilson") == :error
+  end
+
 end
